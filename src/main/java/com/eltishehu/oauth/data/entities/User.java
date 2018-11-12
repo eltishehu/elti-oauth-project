@@ -1,15 +1,29 @@
 package com.eltishehu.oauth.data.entities;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 /**
  * Created by e.sh. on 12-Nov-18
  */
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @NotEmpty
     private String name;
+
+    @NotEmpty
     private String password;
+
+    @ManyToMany
+    @JoinTable(name = "user_role",
+                joinColumns = {@JoinColumn(name = "user_id")},
+                inverseJoinColumns = {@JoinColumn(name = "role_id")})
     private Set<Role> roles;
 
     public Integer getId() {
