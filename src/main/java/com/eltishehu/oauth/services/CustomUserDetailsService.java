@@ -1,4 +1,4 @@
-package com.eltishehu.oauth.config;
+package com.eltishehu.oauth.services;
 
 import com.eltishehu.oauth.data.entities.User;
 import com.eltishehu.oauth.data.repositories.UserRepository;
